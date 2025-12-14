@@ -301,7 +301,22 @@ function HeartTrail() {
 export default function RomanticWebsite() {
   const [currentSection, setCurrentSection] = useState(0)
   const [bunnyPosition, setBunnyPosition] = useState({ x: -150, y: 200 })
-  const [bearPosition, setBearPosition] = useState({ x: window?.innerWidth || 800, y: 200 })
+  const [bearPosition, setBearPosition] = useState({ x: 800, y: 200 })
+  useEffect(() => {
+  const update = () => {
+    setBearPosition({
+      x: window.innerWidth - 170,
+      y: 200,
+    });
+  };
+
+  update(); // run once on mount
+  window.addEventListener("resize", update);
+
+  return () => {
+    window.removeEventListener("resize", update);
+  };
+}, []);
   const [bunnyEmotion, setBunnyEmotion] = useState<'idle' | 'blush' | 'happy' | 'surprised' | 'shy' | 'hugging' | 'pointing' | 'thinking'>('idle')
   const [bearEmotion, setBearEmotion] = useState<'idle' | 'blush' | 'happy' | 'surprised' | 'shy' | 'hugging' | 'pointing' | 'thinking'>('idle')
   const [showThought, setShowThought] = useState(false)
