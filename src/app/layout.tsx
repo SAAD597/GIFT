@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "For You 🌸",
+  title: "For You doudou 🌸",
   description: "A special little website made for someone special",
   keywords: ["love", "romance", "special", "cute"],
   authors: [{ name: "Someone who cares" }],
